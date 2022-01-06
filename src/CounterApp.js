@@ -1,11 +1,11 @@
 import React, { Fragment, useState } from "react";
 import PropTypes from "prop-types";
 
-const CounterApp = ({ value = 6 }) => {
+const CounterApp = ({ value = 1 }) => {
   const [counter, setCounter] = useState(value);
 
   const addition = () => {
-    setCounter(counter + 1);
+    setCounter(Math.floor(Math.random() * (30 - 2) + 2));
   };
   const sustract = () => {
     setCounter(counter - 1);

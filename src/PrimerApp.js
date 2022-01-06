@@ -1,18 +1,29 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useState } from "react";
 import PropTypes from "prop-types";
-import evr from "./conquer.jpg";
+import hitssImage from "./globalhitss.png";
 
 const PrimerApp = ({ titulo, subtitulo }) => {
-  const handleAdd = (e) => {
-    console.log(e);
-  };
+  let value = 0;
+  let [counter, setCounter] = useState(value);
 
+  function getRandomArbitrary() {
+    setCounter(Math.floor(Math.random() * (30 - 1) + 1));
+  }
   return (
     <Fragment>
       <h1>{titulo}</h1>
       <p> {subtitulo}</p>
-      <img src={evr} alt="" width="47%"></img>
-      <button onClick={handleAdd}>Conquer Wolrd Official Video</button>
+      <img src={hitssImage} alt="" width="67%"></img>
+      <table>
+        <tr>
+          <th>
+            <button onClick={getRandomArbitrary}>Numero Ganador:</button>
+          </th>
+          <th>
+            <p1>{counter}</p1>
+          </th>
+        </tr>
+      </table>
     </Fragment>
   );
 };
@@ -21,7 +32,10 @@ PrimerApp.propTypes = {
   titulo: PropTypes.string.isRequired,
 };
 PrimerApp.defaultProps = {
-  subtitulo: "Excavator is a Metal Band From Mexico.",
+  subtitulo: "Sorteo de dia de reyes: Global Hitss",
 };
 
+PrimerApp.propTypes = {
+  value: PropTypes.number,
+};
 export default PrimerApp;
